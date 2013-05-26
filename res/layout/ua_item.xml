@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal" 
+    android:gravity="center_vertical"
+    android:background="@drawable/account_list_1">
+    
+
+    <ImageView 
+        android:layout_marginLeft="15dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/nvxing"/>
+    
+    <TextView 
+        android:layout_marginLeft="5dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="曾嵘Zoe"
+        android:textColor="@color/normal_text"/>
+    
+    <ImageView 
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cam_button_5_1"/>
+</LinearLayout>

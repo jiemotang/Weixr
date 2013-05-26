@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:paddingTop="5dp" 
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+        
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/iv_statuses_profile_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/timeline_pic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tv_statuses_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="热门视频控"
+                android:textColor="#49f"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_statuses_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="今天 15:03"
+                android:textSize="10dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_statuses_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="转发微博"
+            android:textColor="#333" />
+
+        <LinearLayout
+            android:id="@+id/ll_repost"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/timeline_rt_border"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+             <TextView
+	                android:id="@+id/tv_statuses_repost_name"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:text="/@语录之歌："
+	                android:textColor="#49f" />
+	            <TextView
+	                
+	                android:id="@+id/tv_statuses_repost_text"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:width="80dp"
+	                android:text="                        看美剧不看字幕，你能做到吗？不行就来修炼一下吧！"
+	                android:textColor="#333" />
+		</RelativeLayout>
+            <TextView
+                android:id="@+id/tv_statuses_repost_comment"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="转发(48)|评论(0)"
+                android:textColor="#49f"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:id="@+id/iv_statuses_repost_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/timeline_pic" />
+        </LinearLayout>
+        <RelativeLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView 
+                android:id="@+id/tv_statuses_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:textSize="10dp"
+                android:text="来自 周伯通微博管家"/>
+            
+            <TextView 
+                android:id="@+id/tv_statuses_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="10dp"
+				android:text="转发(0)|评论(0)"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
+
+    </LinearLayout>

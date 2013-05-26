@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nf_03">
+
+    <CheckBox
+        android:id="@+id/cb_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="分享给微博好友" 
+        android:textSize="12dp"
+        android:layout_marginTop="410dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_inlet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="开启Weixr之旅"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:layout_marginTop="460dp"
+        android:background="@drawable/about_3_1"/>
+</RelativeLayout>

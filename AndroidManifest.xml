@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.zxr.weixr"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="8" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black.NoTitleBar" >
+        <activity
+            android:name="me.zxr.weixr.ui.main.MainActivity"
+            android:label="@string/app_name" >
+            
+        </activity>
+        <activity 
+            android:name="me.zxr.weixr.ui.login.LoginActivity">
+	          
+        </activity>
+        <activity 
+            android:name="me.zxr.weixr.ui.main.HomeActivity"></activity>
+        <activity 
+            android:name="me.zxr.weixr.ui.main.MailActivity"></activity>
+        <activity 
+            android:name="me.zxr.weixr.ui.main.AdActivity"></activity>
+        <activity 
+            android:name="me.zxr.weixr.ui.main.MeActivity"></activity>
+        <activity 
+            android:name="me.zxr.weixr.ui.main.MoreActivity"></activity>
+        
+        <activity 
+            android:name="me.zxr.weixr.ui.splash.SplashActivity">
+            
+             
+        </activity>
+        
+        <activity 
+            android:name="me.zxr.weixr.ui.splash.StartSplashActivity">
+             <intent-filter>
+	                <action android:name="android.intent.action.MAIN" />
+	
+	                <category android:name="android.intent.category.LAUNCHER" />
+	            </intent-filter>
+        </activity>
+        
+        <activity android:name="me.zxr.weixr.ui.login.AccountActivity"></activity>
+    </application>
+
+</manifest>

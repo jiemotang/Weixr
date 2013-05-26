@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_comments_to_me_profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/timeline_pic" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_comments_to_me_user_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/blue_gray_text" />
+
+                <TextView
+                    android:id="@+id/tv_comments_to_me_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="今天 15:03"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+               <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+	            <TextView
+	                
+	                android:id="@+id/tv_comments_to_me_text"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:width="80dp"
+	                android:text="                        看美剧不看字幕，你能做到吗？不行就来修炼一下吧！"
+	                android:textColor="#333" />
+		</RelativeLayout>
+
+            <RelativeLayout
+                
+                android:layout_marginRight="13dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" 
+            android:background="@drawable/timeline_rt_border_selected">
+             <TextView
+	                android:id="@+id/tv_comments_to_me_original_name"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:textColor="#49f" />
+	            <TextView
+	                android:id="@+id/tv_comments_to_me_original_text"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:width="80dp"
+	                android:textColor="#333" />
+		</RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    
+<!--  <HorizontalScrollView 
+     android:id="@+id/hsv_main"
+     android:layout_width="fill_parent"
+     android:layout_height="fill_parent"
+     android:fadingEdgeLength="0dip"
+        android:fillViewport="false"
+        android:scrollbars="none">
+     <LinearLayout 
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:orientation="horizontal"> -->
+              <!-- 选项卡 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TabHost
+                    android:id="@android:id/tabhost"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical" >
+
+                        <FrameLayout
+                            android:id="@android:id/tabcontent"
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TabWidget
+                            android:id="@android:id/tabs"
+                            android:layout_width="fill_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginBottom="-45dp"
+                            android:background="@drawable/mask_navbar" />
+
+                        <ImageView
+                            android:id="@+id/tab_bg"
+                            android:layout_width="64dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="-6dp"
+                            android:src="@drawable/home_bottom_tab_arrow" />
+                    </LinearLayout>
+                </TabHost>
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:background="@drawable/mask_navbar"></LinearLayout>
+<!--             </LinearLayout>
+ </HorizontalScrollView> -->
+</LinearLayout>

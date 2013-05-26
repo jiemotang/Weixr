@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#fff">
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+	<ImageButton 
+	    android:layout_width="40dp"
+	    android:layout_height="40dp"
+	    android:src="@drawable/group_btn_all_on_title"
+	    android:background="@drawable/button_title"/>
+	
+	<RelativeLayout 
+	    android:layout_marginLeft="5dp"
+	    android:layout_marginRight="60dp"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp">
+	    
+	    <ImageView 
+	        android:layout_width="fill_parent"
+	        android:layout_height="40dp"
+	        android:background="@drawable/button_title"/>
+	    
+	    <LinearLayout 
+	        android:layout_marginLeft="20dp"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:orientation="horizontal">
+	    <TextView 
+	        android:id="@+id/tv_mail_tab_me"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_gravity="center"
+	         android:textColor="@color/normal_text"
+	         android:textSize="20sp"
+	        android:text="\@我"/>
+	    
+	    <TextView 
+	        android:id="@+id/tv_mail_tab_comment"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:textSize="20sp"
+	        android:textColor="@android:color/darker_gray"
+	        android:layout_gravity="center"
+	        android:text="评论"/>
+	    
+	    <TextView 
+	        android:id="@+id/tv_mail_tab_private_mail"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_gravity="center"
+	        android:textColor="@android:color/darker_gray"
+	        android:textSize="20sp"
+	        android:text="私信"/>
+	    </LinearLayout>
+	</RelativeLayout>
+	</LinearLayout>
+	<ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray" />
+	
+	<android.support.v4.view.ViewPager
+	    android:id="@+id/vp_mail"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent">
+	    
+	</android.support.v4.view.ViewPager>
+</LinearLayout>
