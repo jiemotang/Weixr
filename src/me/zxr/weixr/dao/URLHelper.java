@@ -28,8 +28,15 @@ public class URLHelper {
 	public static final String STATUSES_FRIENDS_TIMELINE = BASE_WEIBO_URL+"statuses/friends_timeline.json";
 	public static final String STATUSES_MENTIONS = BASE_WEIBO_URL+"statuses/mentions.json";
 	public static final String STATUSES_USER_TIMELINE = BASE_WEIBO_URL + "statuses/user_timeline.json";
+	public static final String UPDATE_STATUS = BASE_WEIBO_URL + "statuses/update.json";
 	
 	//∆¿¬€
 	public static final String COMMENTS_MENTIONS = BASE_WEIBO_URL+"comments/mentions.json";
 	public static final String COMMENTS_TO_ME = BASE_WEIBO_URL+"comments/to_me.json";
+
+	//±Ì«È
+	public static final String EMOTIONS = BASE_WEIBO_URL+"emotions.json";
+	
+	//GPS
+	public static final String NEARBY_POIS = BASE_WEIBO_URL + "place/nearby/pois.json";
 }

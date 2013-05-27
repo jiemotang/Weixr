@@ -53,6 +53,8 @@
         </activity>
         
         <activity android:name="me.zxr.weixr.ui.login.AccountActivity"></activity>
+        <activity android:name="me.zxr.weixr.ui.send.SendStatusActivity"
+            android:windowSoftInputMode="adjustResize"></activity>
     </application>
 
 </manifest>

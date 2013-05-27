@@ -11,6 +11,7 @@ import me.zxr.weixr.bean.WeiboBean;
 import me.zxr.weixr.bean.WeiboListBean;
 import me.zxr.weixr.dao.URLHelper;
 import me.zxr.weixr.dao.UserDao;
+import me.zxr.weixr.ui.send.SendStatusActivity;
 import me.zxr.weixr.utils.HttpUtility;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 
 public class HomeActivity extends Activity {
@@ -164,12 +166,24 @@ public class HomeActivity extends Activity {
 		
 	};
 	
+	public void sendStatus(View view){
+		Intent intent = new Intent(this, SendStatusActivity.class);
+		startActivity(intent);
+	}
 	
 	
 	private void findViews(){
 		rl_main_menu = (RelativeLayout) findViewById(R.id.rl_main_menu);
 		lv_main_status = (ListView) findViewById(R.id.lv_main_status);
 		tv_main_userName  = (TextView) findViewById(R.id.tv_main_userName);
+	}
+	
+	@Override
+	protected void onRestart() {
+		// TODO Auto-generated method stub
+		super.onRestart();
+		MyTask m = new MyTask();
+		m.start();
 	}
 
 }

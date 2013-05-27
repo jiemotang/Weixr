@@ -58,11 +58,13 @@ public class HttpUtility {
 				HttpGet requst = new HttpGet(path);
 				response = httpClient.execute(requst);
 			}else if(method.toUpperCase().equals("POST")){//还是POST请求
+				System.out.println("是post");
 				HttpPost request = new HttpPost(path);
 				response = httpClient.execute(request);
 			}
 			
 			int statusCode = response.getStatusLine().getStatusCode();
+			System.out.println(statusCode);
 			if(statusCode == 200){
 				HttpEntity entity = response.getEntity();
 				InputStream is = entity.getContent();
