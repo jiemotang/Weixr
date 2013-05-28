@@ -70,19 +70,20 @@ public class StatusesAdapter extends BaseAdapter{
 				Object[] objs = (Object[]) msg.obj;
 				iv_statuses_profile_image = (ImageView) objs[0];
 				Bitmap bitmap = (Bitmap) objs[1];
-				iv_statuses_profile_image.setImageBitmap(bitmap);
+					iv_statuses_profile_image.setImageBitmap(bitmap);
 				break;
 			case SET_STATUSES_IMAGE:
 				Object[] objs2 = (Object[]) msg.obj;
 				iv_statuses_image = (ImageView) objs2[0];
 				Bitmap bitmap2 = (Bitmap) objs2[1];
-				iv_statuses_image.setImageBitmap(bitmap2);
+					iv_statuses_image.setImageBitmap(bitmap2);
+				
 				break;
 			case SET_STATUSES_REPOST_IMAGE:
 				Object[] objs3 = (Object[]) msg.obj;
 				iv_statuses_repost_image = (ImageView) objs3[0];
 				Bitmap bitmap3 = (Bitmap) objs3[1];
-				iv_statuses_repost_image.setImageBitmap(bitmap3);
+					iv_statuses_repost_image.setImageBitmap(bitmap3);
 				break;
 			default:
 				break;
@@ -129,6 +130,7 @@ public class StatusesAdapter extends BaseAdapter{
 			iv_statuses_image = (ImageView) view.findViewById(R.id.iv_statuses_image);
 			
 			final String image_url = wb.thumbnail_pic;
+			String[] pics = new String[]{wb.bmiddle_pic, wb.original_pic};
 			if(path != null){
 				new Thread(){
 					public void run() {
@@ -147,6 +149,8 @@ public class StatusesAdapter extends BaseAdapter{
 						
 					};
 				}.start();
+			}else{
+				iv_statuses_profile_image.setVisibility(View.GONE);
 			}
 			iv_statuses_profile_image.setTag(wb.user.id);
 			tv_statuses_user_name.setText(name);
@@ -165,6 +169,8 @@ public class StatusesAdapter extends BaseAdapter{
 			
 			
 			if(image_url != null){
+				
+				iv_statuses_image.setTag(pics);
 				new Thread(){
 					public void run() {
 						String fileName = image_url.substring(image_url.lastIndexOf("/")+1);
@@ -180,6 +186,8 @@ public class StatusesAdapter extends BaseAdapter{
 						mHandler.sendMessage(msg);
 					};
 				}.start();
+			}else{
+				iv_statuses_image.setVisibility(View.GONE);
 			}
 			//iv_statuses_image.setImageBitmap(HttpUtility.getmInstance().getBitMap(image_url));
 		}else{
@@ -199,6 +207,7 @@ public class StatusesAdapter extends BaseAdapter{
 				String repost_text = wb.retweeted_status.text;
 				String repost_comment = "×ª·¢("+wb.retweeted_status.reposts_count+") | ÆÀÂÛ("+wb.retweeted_status.comments_count+")";
 				final String repost_image_url = wb.retweeted_status.thumbnail_pic;
+				String[] repost_pics = new String[]{wb.retweeted_status.bmiddle_pic, wb.retweeted_status.original_pic};
 				
 				if(path != null){
 					new Thread(){
@@ -217,6 +226,8 @@ public class StatusesAdapter extends BaseAdapter{
 							mHandler.sendMessage(msg);
 						};
 					}.start();
+				}else{
+					iv_statuses_profile_image.setVisibility(View.GONE);
 				}
 			//iv_statuses_profile_image.setImageBitmap(HttpUtility.getmInstance().getBitMap(path));
 			iv_statuses_repost_image.setTag(wb.user.id);
@@ -237,6 +248,7 @@ public class StatusesAdapter extends BaseAdapter{
 			
 			
 			if(repost_image_url != null){
+				iv_statuses_repost_image.setTag(repost_pics);
 				new Thread(){
 					public void run() {
 						String fileName = repost_image_url.substring(repost_image_url.lastIndexOf("/")+1);
@@ -252,6 +264,8 @@ public class StatusesAdapter extends BaseAdapter{
 						mHandler.sendMessage(msg);
 					};
 				}.start();
+			}else{
+				iv_statuses_repost_image.setVisibility(View.GONE);
 			}
 			//iv_statuses_repost_image.setImageBitmap(HttpUtility.getmInstance().getBitMap(repost_image_url));
 			

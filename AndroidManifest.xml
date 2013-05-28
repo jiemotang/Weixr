@@ -7,10 +7,12 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="8" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -20,41 +22,38 @@
         <activity
             android:name="me.zxr.weixr.ui.main.MainActivity"
             android:label="@string/app_name" >
-            
         </activity>
-        <activity 
-            android:name="me.zxr.weixr.ui.login.LoginActivity">
-	          
+        <activity android:name="me.zxr.weixr.ui.login.LoginActivity" >
         </activity>
-        <activity 
-            android:name="me.zxr.weixr.ui.main.HomeActivity"></activity>
-        <activity 
-            android:name="me.zxr.weixr.ui.main.MailActivity"></activity>
-        <activity 
-            android:name="me.zxr.weixr.ui.main.AdActivity"></activity>
-        <activity 
-            android:name="me.zxr.weixr.ui.main.MeActivity"></activity>
-        <activity 
-            android:name="me.zxr.weixr.ui.main.MoreActivity"></activity>
-        
-        <activity 
-            android:name="me.zxr.weixr.ui.splash.SplashActivity">
-            
-             
+        <activity android:name="me.zxr.weixr.ui.main.HomeActivity" >
         </activity>
-        
-        <activity 
-            android:name="me.zxr.weixr.ui.splash.StartSplashActivity">
-             <intent-filter>
-	                <action android:name="android.intent.action.MAIN" />
-	
-	                <category android:name="android.intent.category.LAUNCHER" />
-	            </intent-filter>
+        <activity android:name="me.zxr.weixr.ui.main.MailActivity" >
         </activity>
-        
-        <activity android:name="me.zxr.weixr.ui.login.AccountActivity"></activity>
-        <activity android:name="me.zxr.weixr.ui.send.SendStatusActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name="me.zxr.weixr.ui.main.AdActivity" >
+        </activity>
+        <activity android:name="me.zxr.weixr.ui.main.MeActivity" >
+        </activity>
+        <activity android:name="me.zxr.weixr.ui.main.MoreActivity" >
+        </activity>
+        <activity android:name="me.zxr.weixr.ui.splash.SplashActivity" >
+        </activity>
+        <activity android:name="me.zxr.weixr.ui.splash.StartSplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="me.zxr.weixr.ui.login.AccountActivity" >
+        </activity>
+        <activity
+            android:name="me.zxr.weixr.ui.send.SendStatusActivity"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity android:name="me.zxr.weixr.ui.send.SelectPoiActivity" >
+        </activity>
+        <activity android:name="me.zxr.weixr.ui.pic.OriginalPicActivity" >
+        </activity>
     </application>
 
 </manifest>

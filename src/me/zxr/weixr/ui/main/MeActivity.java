@@ -138,11 +138,16 @@ public class MeActivity extends Activity{
 				parameters.add("access_token", access_token);
 				parameters.add("uid", uid);
 				String result = HttpUtility.getmInstance().executeNormalTask("GET", path, parameters);
-				System.out.println(result+"dsad");
 				WeiboListBean wlb = new Gson().fromJson(result, WeiboListBean.class);
 				Message msg = new Message();
 				msg.what = LOAD_ME_STATUS_OK;
-				msg.obj = wlb.getStatuses();
+				List<WeiboBean> wbs = new ArrayList<WeiboBean>();
+				for(int i =0;i<wlb.getStatuses().size();i++){
+					WeiboBean wb = wlb.getStatuses().get(i);
+					wb.user.profile_image_url = null;
+					wbs.add(wb);
+				}
+				msg.obj = wbs;
 				mHandler.sendMessage(msg);
 			}
 		}.start();

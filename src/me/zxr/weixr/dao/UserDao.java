@@ -1,5 +1,8 @@
 package me.zxr.weixr.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.sina.weibo.sdk.log.Log;
 
 import me.zxr.weixr.bean.UserBean;
@@ -87,5 +90,38 @@ public class UserDao {
 			
 		}
 		return ub;
+	}
+	
+	public List<UserBean> findUser(){
+		List<UserBean> ubs = new ArrayList<UserBean>();
+		DBHelper helper = new DBHelper(context);
+		Cursor c = helper.getReadableDatabase().query("user", UserBean.PROJECTION, null, null, null, null, null);
+		while(c.moveToNext()){
+			UserBean ub = new UserBean();
+			ub.id = c.getString(UserBean.ID_INDEX);
+			ub.idstr = c.getString(UserBean.IDSTR_INDEX);
+			ub.access_token = c.getString(UserBean.ACCESS_TOKEN_INDEX);
+			ub.screen_name = c.getString(UserBean.SCREEN_NAME_INDEX);
+			ub.name = c.getString(UserBean.NAME_INDEX);
+			ub.province  = c.getInt(UserBean.PROVINCE_INDEX);
+			ub.city = c.getInt(UserBean.CITY_INDEX);
+			ub.location = c.getString(UserBean.LOCATION_INDEX);
+			ub.description = c.getString(UserBean.DESCRIPTION_INDEX);
+			ub.url = c.getString(UserBean.URL_INDEX);
+			ub.profile_image_url = c.getString(UserBean.PROFILE_IMAGE_URL_INDEX);
+			ub.domain = c.getString(UserBean.DOMAIN_INDEX);
+			ub.gender = c.getString(UserBean.GENDER_INDEX);
+			ub.followers_count = c.getInt(UserBean.FOLLOWERS_COUNT_INDEX);
+			ub.friends_count = c.getInt(UserBean.FRIENDS_COUNT_INDEX);
+			ub.statuses_count = c.getInt(UserBean.STATUSES_COUNT_INDEX);
+			ub.favourites_count = c.getInt(UserBean.FAVOURITES_COUNT_INDEX);
+			ub.created_at = c.getString(UserBean.CREATED_AT_INDEX);
+			ub.verified_type = c.getInt(UserBean.VERIFIED_TYPE_INDEX);
+			ub.remark = c.getString(UserBean.REMARK_INDEX);
+			ub.online_status = c.getInt(UserBean.ONLINE_STATUS_INDEX);
+			ub.bi_followers_count = c.getInt(UserBean.BI_FOLLOWERS_COUNT_INDEX);
+			ubs.add(ub);
+		}
+		return ubs;
 	}
 }

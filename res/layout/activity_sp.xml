@@ -51,6 +51,9 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:cacheColorHint="#00000000" />
+            android:cacheColorHint="#00000000"
+        android:footerDividersEnabled="false"
+        android:divider="#eee"
+        android:dividerHeight="0.1dp" />
 
 </LinearLayout>

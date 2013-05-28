@@ -15,6 +15,7 @@ import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
+import java.util.List;
 import java.util.Map;
 
 import me.zxr.weixr.socket.SSLSocketFactoryEx;
@@ -22,8 +23,10 @@ import me.zxr.weixr.socket.SSLSocketFactoryEx;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 
@@ -47,6 +50,13 @@ public class HttpUtility {
 		return mHttpUtility;
 	}
 
+	/**
+	 * 普通访问，POST不能用（下面另写）
+	 * @param method
+	 * @param path
+	 * @param parameters
+	 * @return
+	 */
 	public String executeNormalTask(String method, String path, WeiboParameters parameters){
 		String result = null;
 		HttpResponse response = null;
@@ -58,13 +68,44 @@ public class HttpUtility {
 				HttpGet requst = new HttpGet(path);
 				response = httpClient.execute(requst);
 			}else if(method.toUpperCase().equals("POST")){//还是POST请求
-				System.out.println("是post");
 				HttpPost request = new HttpPost(path);
 				response = httpClient.execute(request);
 			}
 			
 			int statusCode = response.getStatusLine().getStatusCode();
-			System.out.println(statusCode);
+			if(statusCode == 200){
+				HttpEntity entity = response.getEntity();
+				InputStream is = entity.getContent();
+				ByteArrayOutputStream bos = new ByteArrayOutputStream();
+				byte[] buffer = new byte[1024];
+				int len = 0;
+				while((len = is.read(buffer)) != -1){
+					bos.write(buffer, 0, len);
+				}
+				result = bos.toString();
+				bos.close();
+				is.close();
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public String executeNormalTaskPost(String path, List<NameValuePair> parameters){
+		String result = null;
+		HttpResponse response = null;
+		try {
+			//从SSL加密工厂拿到httpclient
+			HttpClient httpClient = new SSLSocketFactoryEx(null).getNewHttpClient();
+				HttpPost request = new HttpPost(path);
+				UrlEncodedFormEntity uefe = new UrlEncodedFormEntity(parameters, "UTF-8");
+				request.setEntity(uefe);
+				response = httpClient.execute(request);
+			
+			int statusCode = response.getStatusLine().getStatusCode();
 			if(statusCode == 200){
 				HttpEntity entity = response.getEntity();
 				InputStream is = entity.getContent();

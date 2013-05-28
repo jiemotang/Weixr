@@ -7,7 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.message.BasicNameValuePair;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -20,6 +22,7 @@ import me.zxr.weixr.utils.HttpUtility;
 import android.R.drawable;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -126,13 +129,16 @@ public class SendStatusActivity extends Activity{
 		if(!metion_open){
 			ll_metion.setVisibility(View.VISIBLE);
 			metion_open = true;
+			InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+			if(!imm.isActive()){
+				//如果键盘处于打开状态就关闭，如果键盘处于关闭状态就代开
+				imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
+			}
 		}else{
 			metion_open = false;
 			ll_metion.setVisibility(View.GONE);
 		}
-		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-			//如果键盘处于打开状态就关闭，如果键盘处于关闭状态就代开
-			imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
+		
 	}
 	
 	private class OnStatusTextClickListener implements OnClickListener{
@@ -178,7 +184,9 @@ public class SendStatusActivity extends Activity{
 	 * 软键盘打开
 	 * @param view
 	 */
-	private void keybord_open(View view){
+	public void keybord_open(View view){
+		metion_open = false;
+		ll_metion.setVisibility(View.GONE);
 		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		//如果键盘处于打开状态就关闭，如果键盘处于关闭状态就代开
 		imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
@@ -215,15 +223,25 @@ public class SendStatusActivity extends Activity{
 	
 	public void send(View view){
 		String path = URLHelper.UPDATE_STATUS;
-		WeiboParameters parameters = new WeiboParameters();
-		parameters.add("access_token", access_token);
-		parameters.add("status", et_status_text.getText()+"");
-		String result = HttpUtility.getmInstance().executeNormalTask("POST", path, parameters);
+		List<NameValuePair> parameters = new ArrayList<NameValuePair>();
+		NameValuePair nvp1 = new BasicNameValuePair("access_token", access_token);
+		NameValuePair nvp2 = new BasicNameValuePair("status", et_status_text.getText()+"");
+		parameters.add(nvp1);
+		parameters.add(nvp2);
+		
+		String result = HttpUtility.getmInstance().executeNormalTaskPost(path, parameters);
 		System.out.println(access_token);
 		System.out.println(et_status_text.getText()+"");
 		System.out.println(result+"");
 		Toast.makeText(this, "发送成功", 1).show();
 		finish();
+	}
+	
+	public void poi_open(View view){
+		Intent intent = new Intent(this, SelectPoiActivity.class);
+		startActivityForResult(intent, 101);
+		
+		
 	}
 	
 	private void findViews(){
@@ -232,5 +250,15 @@ public class SendStatusActivity extends Activity{
 		et_status_text = (EditText) findViewById(R.id.et_status_text);
 		tv_surplus_word = (TextView) findViewById(R.id.tv_surplus_word);
 	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		String title = data.getStringExtra("title");
+		et_status_text.setText(et_status_text.getText()+"我在：#"+title+"#");
+		et_status_text.setSelection(et_status_text.getText().length());
+	}
+	
 	
 }

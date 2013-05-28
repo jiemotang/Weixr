@@ -14,33 +14,34 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/button_m"
-            android:src="@drawable/button_icon_close"
-            android:onClick="back" />
+            android:onClick="back"
+            android:src="@drawable/button_icon_close" />
 
-        <RelativeLayout 
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_weight="1">
-            <ImageView 
+            android:layout_weight="1" >
+
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/button_m"/>
-              <TextView
-           android:layout_width="fill_parent"
-           android:layout_height="fill_parent"
-           android:textSize="13dp"
-            android:gravity="center"
-            android:text="新微博"
-            android:textColor="@color/normal_text" />
+                android:background="@drawable/button_m" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="新微博"
+                android:textColor="@color/normal_text"
+                android:textSize="13dp" />
         </RelativeLayout>
-      
 
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/button_m"
-            android:src="@drawable/button_icon_ok"
-            android:onClick="send" />
+            android:onClick="send"
+            android:src="@drawable/button_icon_ok" />
     </LinearLayout>
 
     <RelativeLayout
@@ -49,29 +50,28 @@
         android:layout_weight="1" >
 
         <EditText
-            
-            android:gravity="left"
             android:id="@+id/et_status_text"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="#fff" />
-        
-        <TextView 
+            android:background="#fff"
+            android:gravity="left" />
+
+        <TextView
             android:id="@+id/tv_surplus_word"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:text="140"/>
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:text="140" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:layout_marginBottom="5dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <Button
@@ -114,7 +114,8 @@
             android:layout_width="40dp"
             android:layout_height="33dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/compose_toolbar_5" />
+            android:background="@drawable/compose_toolbar_6"
+            android:onClick="metion_buton" />
 
         <ImageView
             android:layout_width="1dp"
@@ -126,50 +127,53 @@
             android:layout_width="40dp"
             android:layout_height="33dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/compose_toolbar_6" 
-            android:onClick="metion_buton"/>
+            android:background="@drawable/compose_toolbar_5" 
+            android:onClick="poi_open"/>
     </LinearLayout>
-    
-    <LinearLayout 
-        android:visibility="gone"
+
+    <LinearLayout
         android:id="@+id/ll_metion"
         android:layout_width="fill_parent"
         android:layout_height="260dp"
-        android:orientation="vertical">
-        <LinearLayout 
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
-        
-            <Button 
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal" >
+
+            <Button
                 android:layout_width="72dp"
                 android:layout_height="40dp"
                 android:background="@drawable/emotion_key_keyboard_1"
-                android:onClick="keybord_open"/>
-            <Button 
-                android:layout_marginTop="-3dp"
+                android:onClick="keybord_open" />
+
+            <Button
                 android:layout_width="88dp"
                 android:layout_height="41dp"
-                android:background="@drawable/emotion_key_tab_1_1"/>
-             <Button 
                 android:layout_marginTop="-3dp"
+                android:background="@drawable/emotion_key_tab_1_1" />
+
+            <Button
                 android:layout_width="88dp"
                 android:layout_height="41dp"
-                android:background="@drawable/emotion_key_tab_2"/>
-            <Button 
+                android:layout_marginTop="-3dp"
+                android:background="@drawable/emotion_key_tab_2" />
+
+            <Button
                 android:layout_width="72dp"
                 android:layout_height="40dp"
                 android:background="@drawable/emotion_key_del_1"
-                android:onClick="text_del"/>
-        
-    </LinearLayout>
-        
-    <GridView 
-        android:id="@+id/gv_metions"
-        android:layout_width="fill_parent"
-        android:layout_height="220dp"
-        android:gravity="center_horizontal"
-        android:numColumns="6"/>
+                android:onClick="text_del" />
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gv_metions"
+            android:layout_width="fill_parent"
+            android:layout_height="220dp"
+            android:gravity="center_horizontal"
+            android:numColumns="6" />
     </LinearLayout>
 
 </LinearLayout>

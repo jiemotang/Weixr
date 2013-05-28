@@ -11,6 +11,7 @@ import me.zxr.weixr.bean.WeiboBean;
 import me.zxr.weixr.bean.WeiboListBean;
 import me.zxr.weixr.dao.URLHelper;
 import me.zxr.weixr.dao.UserDao;
+import me.zxr.weixr.ui.pic.OriginalPicActivity;
 import me.zxr.weixr.ui.send.SendStatusActivity;
 import me.zxr.weixr.utils.HttpUtility;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -118,18 +120,19 @@ public class HomeActivity extends Activity {
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-					System.out.println(tv_statuses_repost_name.getText()+"");	
 					}
 				});
 			}
-			if(id == R.id.tv_statuses_repost_name){
-				System.out.println("tv_statuses_repost_name");
-			}
-			if(id == R.id.tv_statuses_repost_text){
-				System.out.println("tv_statuses_repost_text");
-			}
-			if(id == R.id.ll_repost){
-				System.out.println("ll_repost");
+			ImageView iv_statuses_repost_image = (ImageView) view.findViewById(R.id.iv_statuses_repost_image);
+			if(iv_statuses_repost_image != null){
+				String[] pics = (String[]) iv_statuses_repost_image.getTag();
+				Intent intent = new Intent(HomeActivity.this, OriginalPicActivity.class);
+				if(pics[1] != null && !pics[1].equals("")){
+					intent.putExtra("path", pics[1]);
+				}else{
+					intent.putExtra("path", pics[0]);
+				}
+				startActivity(intent);
 			}
 		}
 		

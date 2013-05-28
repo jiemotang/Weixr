@@ -108,12 +108,14 @@ public class LoginActivity extends Activity{
 						Toast.makeText(getApplicationContext(), "网络无法连接", Toast.LENGTH_LONG).show();
 						e.printStackTrace();
 					}
-					SharedPreferences sp = getSharedPreferences("user", Context.MODE_PRIVATE);
-					Editor editor = sp.edit();
-					editor.putString("uid", ub.id);
-					editor.putString("access_token", ub.access_token);
-					editor.commit();
+					
 				}
+				
+				SharedPreferences sp = getSharedPreferences("user", Context.MODE_PRIVATE);
+				Editor editor = sp.edit();
+				editor.putString("uid", values.getString("uid"));
+				editor.putString("access_token", values.getString("access_token"));
+				editor.commit();
 				view.stopLoading();
 				Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 				LoginActivity.this.startActivity(intent);
